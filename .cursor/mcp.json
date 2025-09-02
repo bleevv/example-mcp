@@ -4,7 +4,7 @@
       "command": "bun",
       "args": [
         "run",
-        "/Users/lzn/Downloads/projects/example-mcp/index.ts" // PATH TO YOUR MCP SERVER
+        "/Users/lzn/Downloads/projects/example-mcp/index.ts"
       ]
     }
   }
