@@ -1,0 +1,20 @@
+{
+  "name": "example-mcp",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bunx @modelcontextprotocol/inspector bun run index.ts",
+    "start": "bun run index.ts",
+    "deploy": ""
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.4"
+  }
+}
