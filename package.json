@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "bunx @modelcontextprotocol/inspector bun run index.ts",
-    "start": "bun run index.ts",
-    "deploy": ""
+    "start": "bun run index.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"

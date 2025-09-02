@@ -7,6 +7,7 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 import { Database } from "bun:sqlite";
+import { sampleData } from "./sampleData.js";
 
 const db = new Database(":memory:");
 
@@ -29,28 +30,6 @@ const insertEmployee = db.prepare(`
   INSERT INTO employees (name, department, level, performance_score, quarterly_rating, bonus, hire_date, manager_id)
   VALUES (?, ?, ?, ?, ?, ?, ?, ?)
 `);
-
-const sampleData = [
-  // 管理職
-  ["田中マネージャー", "技術部", "M2", 4.8, "A+", 50000, "2020-01-15", null],
-  ["山田部長", "プロダクト部", "M3", 4.6, "A", 80000, "2019-03-20", null],
-  ["佐藤主任", "技術部", "M1", 4.4, "A", 35000, "2021-06-10", 1],
-
-  // シニアエンジニア
-  ["鈴木エンジニア", "技術部", "P7", 4.2, "A", 30000, "2021-08-15", 3],
-  ["高橋エンジニア", "技術部", "P6", 3.8, "B+", 25000, "2022-01-20", 3],
-  ["渡辺エンジニア", "技術部", "P6", 4.0, "A", 28000, "2022-03-10", 3],
-
-  // ミドルエンジニア
-  ["伊藤エンジニア", "技術部", "P5", 3.6, "B+", 18000, "2022-09-01", 4],
-  ["松本エンジニア", "技術部", "P5", 3.4, "B", 15000, "2023-02-15", 4],
-  ["中村エンジニア", "技術部", "P4", 3.2, "B", 12000, "2023-05-20", 5],
-
-  // プロダクトチーム
-  ["小林プロダクト", "プロダクト部", "P6", 4.1, "A", 26000, "2021-11-10", 2],
-  ["加藤プロダクト", "プロダクト部", "P5", 3.7, "B+", 20000, "2022-07-15", 10],
-  ["吉田プロダクト", "プロダクト部", "P4", 3.3, "B", 14000, "2023-01-08", 10],
-];
 
 for (const data of sampleData) {
   insertEmployee.run(...data);
@@ -277,7 +256,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       let query = `
         SELECT * FROM employees 
         WHERE performance_score >= 4.0 
-        AND DATE(hire_date) <= DATE('now', '-1 year')
+        AND hire_date <= DATE('now', '-1 year')
       `;
 
       if ((args as any).department) {
