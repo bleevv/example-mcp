@@ -31,7 +31,7 @@ server.tool("get_screenshot", "スクリーンショットを取得", {
 async function runServer() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.log("mcp server running!");
+  console.error("mcp server running!");
 }
 
 runServer().catch(console.error);
