@@ -4,8 +4,12 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bunx @modelcontextprotocol/inspector bun run index.ts",
-    "start": "bun run index.ts"
+    "dev-employee": "bunx @modelcontextprotocol/inspector bun run index.ts",
+    "add-employee": " claude mcp add employee -- /Users/rishinnan/.bun/bin/bun run /Users/rishinnan/Downloads/myproj/example-mcp/index.ts ",
+    "remove-employee": " claude mcp remove employee",
+    "dev-screenshot": "bunx @modelcontextprotocol/inspector bun run screenshoot.ts",
+    "add-screenshot": " claude mcp add screenshot -- /Users/rishinnan/.bun/bin/bun run /Users/rishinnan/Downloads/myproj/example-mcp/screenshoot.ts ",
+    "remove-screenshot": " claude mcp remove screenshot"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -14,6 +18,8 @@
     "typescript": "^5"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.4"
+    "@modelcontextprotocol/sdk": "^1.17.4",
+    "puppeteer": "^24.18.0",
+    "zod": "3"
   }
 }

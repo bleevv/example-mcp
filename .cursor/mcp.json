@@ -1,10 +1,17 @@
 {
   "mcpServers": {
-    "employee-performance": {
+    "screenshoot": {
       "command": "bun",
       "args": [
         "run",
-        "/Users/lzn/Downloads/projects/example-mcp/index.ts"
+        "/Users/rishinnan/Downloads/myproj/example-mcp/screenshoot.ts"
+      ]
+    },
+    "employee": {
+      "command": "bun",
+      "args": [
+        "run",
+        "/Users/rishinnan/Downloads/myproj/example-mcp/index.ts"
       ]
     }
   }
